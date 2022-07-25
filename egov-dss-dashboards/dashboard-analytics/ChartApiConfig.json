@@ -2545,16 +2545,9 @@
       {
         "module": "PT",
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\",\"tenantId\" : \"Data.tenantId.keyword\" }",
-        "dateRefField": "Data.@timestamp",
+        "dateRefField": "Data.assessmentDate",
         "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}]}},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\",\"min_doc_count\":0}}}}}}"
-      },
-      {
-        "module": "PT",
-        "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.tenantId.keyword\" }",
-        "dateRefField": "Data.@timestamp",
-        "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}]}},\"aggs\":{\"Total\":{\"value_count\":{\"field\":\"Data.assessmentNumber.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\"},\"aggs\":{\"Sum\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}"
       }
     ],
     "isMdmsEnabled": true,
@@ -2565,6 +2558,8 @@
     "valueType": "number",
     "drillChart": "xptFyByTenant",
     "plotLabel": "DDRs",
+    "order": "desc",
+    "limit": 10,
     "insight": {
     },
     "_comment": ""
@@ -2575,16 +2570,9 @@
       {
         "module": "PT",
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\",\"tenantId\" : \"Data.tenantId.keyword\" }",
-        "dateRefField": "Data.@timestamp",
+        "dateRefField": "Data.assessmentDate",
         "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}]}},\"aggs\":{\"ULBS \":{\"terms\":{\"field\":\"Data.tenantId.keyword\"},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\",\"min_doc_count\":0}}}}}}}}"
-      },
-      {
-        "module": "PT",
-        "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\",\"tenantId\" : \"Data.tenantId.keyword\" }",
-        "dateRefField": "Data.@timestamp",
-        "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}]}},\"aggs\":{\"ULBS \":{\"terms\":{\"field\":\"Data.tenantId.keyword\"},\"aggs\":{\"Total\":{\"value_count\":{\"field\":\"Data.assessmentNumber.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"ULBs \":{\"terms\":{\"field\":\"Data.tenantId.keyword\"},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\"},\"aggs\":{\"Sum\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -2594,6 +2582,8 @@
     "valueType": "number",
     "drillChart": "xptFyByWard",
     "plotLabel": "Boundary",
+    "order": "desc",
+    "limit": 10,
     "insight": {
     },
     "_comment": ""
@@ -2603,25 +2593,21 @@
     "queries": [
       {
         "module": "PT",
-        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\" , \"wardId\" : \"Data.ward.name.keyword\"}",
-        "dateRefField": "Data.@timestamp",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\" , \"wardId\" : \"Data.ward.locality.name.keyword\"}",
+        "dateRefField": "Data.assessmentDate",
         "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}]}},\"aggs\":{\"Ward \":{\"terms\":{\"field\":\"Data.ward.name.keyword\"},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\",\"min_doc_count\":0}}}}}}}}"
-      },
-      {
-        "module": "PT",
-        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\" , \"wardId\" : \"Data.ward.name.keyword\"}",
-        "dateRefField": "Data.@timestamp",
-        "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}]}},\"aggs\":{\"Ward \":{\"terms\":{\"field\":\"Data.ward.name.keyword\"},\"aggs\":{\"Total\":{\"value_count\":{\"field\":\"Data.assessmentNumber.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"Wards \":{\"terms\":{\"field\":\"Data.ward.locality.name.keyword\"},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\"},\"aggs\":{\"Sum\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}"
       }
     ],
     "filterKeys": [
+      {"key": "wardId", "column": "Wards"}
     ],
     "chartType": "xtable",
     "valueType": "number",
     "drillChart": "none",
     "plotLabel": "Wards",
+    "order": "desc",
+    "limit": 10,
     "insight": {
     },
     "_comment": ""
@@ -17593,5 +17579,69 @@
       "isRoundOff": true
     },
     "_comment": " "
+  },
+  "totalNoOfProperties": {
+    "chartName": "DSS_PT_TOTAL_NO_OF_PROPERTIES",
+    "queries": [
+      {
+        "module": "PT",
+        "indexName": "property-services",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Total No Of Application\":{\"value_count\":{\"field\":\"Data.propertyId.keyword\"}}}}}}",
+        "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \r\n  \"district\" : \"Data.tenantData.city.districtCode\", \r\n\"tenantId\" : \"Data.tenantId\" \r\n}",
+        "dateRefField": ""
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Total No Of Application"
+    ],
+    "_comment": " totol properties count"
+  },
+
+  "totalMutationProperties": {
+    "chartName": "DSS_PT_TOTAL_MUTATION_PROPERTIES",
+    "queries": [
+      {
+        "module": "PT",
+        "indexName": "property-application",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.creationReason.keyword\":\"MUTATION\"}}]}},\"aggs\":{\"Mutation Applications\":{\"value_count\":{\"field\":\"Data.creationReason.keyword\"}}}}}}",
+        "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"district\" : \"Data.tenantData.city.districtCode\", \"tenantId\" : \"Data.tenantId\" \r\n}",
+        "dateRefField": ""
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Mutation Applications"
+    ],
+    "_comment": " totol mutation properties count"
+  },
+  "totalMutationFeeCalculation": {
+    "chartName": "DSS_PT_MUTATION_FEE_CALCULATION",
+    "queries": [
+      {
+        "module": "PT",
+        "indexName": "dss-collection_v1",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"dataObject.bill.status.keyword\":[\"Cancelled\"]}}],\"must\":[{\"term\":{\"dataObject.paymentDetails.businessService.keyword\":\"PT.MUTATION\"}}]}},\"aggs\":{\"Mutataion Fee\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}}",
+        "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"district\" : \"Data.tenantData.city.districtCode\", \"tenantId\" : \"Data.tenantId\" \r\n}",
+        "dateRefField": ""
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Mutataion Fee"
+    ],
+    "_comment": " totol mutation fee calculation"
   }
 }

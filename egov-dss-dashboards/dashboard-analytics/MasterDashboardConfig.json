@@ -625,6 +625,14 @@
                   "chartType": "metric",
                   "filter": "",
                   "headers": []
+                },
+                {
+                  "id": "totalMutationFeeCalculation",
+                  "name": "DSS_PT_MUTATION_FEE_CALCULATION",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
                 }
               ]
             },
@@ -846,6 +854,22 @@
                 {
                   "id": "activeUlbs",
                   "name": "DSS_PT_TOTAL_ACTIVE_ULBS",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "totalNoOfProperties",
+                  "name": "DSS_PT_TOTAL_NO_OF_PROPERTIES",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "totalMutationProperties",
+                  "name": "DSS_PT_TOTAL_MUTATION_PROPERTIES",
                   "code": "",
                   "chartType": "metric",
                   "filter": "",
