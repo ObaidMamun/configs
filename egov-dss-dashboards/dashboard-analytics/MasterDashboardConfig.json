@@ -844,14 +844,6 @@
                   "headers": []
                 },
                 {
-                  "id": "totalAssessment",
-                  "name": "DSS_PT_TOTAL_ASSESSMENTS",
-                  "code": "",
-                  "chartType": "metric",
-                  "filter": "",
-                  "headers": []
-                },
-                {
                   "id": "activeUlbs",
                   "name": "DSS_PT_TOTAL_ACTIVE_ULBS",
                   "code": "",
