@@ -2547,7 +2547,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.locality.name.keyword\",\"tenantId\" : \"Data.tenantId.keyword\" }",
         "dateRefField": "Data.assessmentDate",
         "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\",\"min_doc_count\":0},\"aggs\":{\"Sum\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\",\"min_doc_count\":0,\"size\":5},\"aggs\":{\"Sum\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}"
       },
       {
         "module": "PT",
@@ -2565,8 +2565,6 @@
     "valueType": "number",
     "drillChart": "xptFyByTenant",
     "plotLabel": "DDRs",
-    "order": "desc",
-    "limit": 3,
     "insight": {
     },
     "_comment": ""
@@ -2579,7 +2577,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.locality.name.keyword\",\"tenantId\" : \"Data.tenantId.keyword\" }",
         "dateRefField": "Data.assessmentDate",
         "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"ULBs \":{\"terms\":{\"field\":\"Data.tenantId.keyword\"},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\",\"min_doc_count\":0},\"aggs\":{\"Sum\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"ULBs \":{\"terms\":{\"field\":\"Data.tenantId.keyword\"},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\",\"min_doc_count\":0,\"size\":5},\"aggs\":{\"Sum\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}"
       },
       {
         "module": "PT",
@@ -2596,8 +2594,6 @@
     "valueType": "number",
     "drillChart": "xptFyByWard",
     "plotLabel": "Boundary",
-    "order": "desc",
-    "limit": 3,
     "insight": {
     },
     "_comment": ""
@@ -2610,7 +2606,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\" , \"wardId\" : \"Data.ward.locality.name.keyword\"}",
         "dateRefField": "Data.assessmentDate",
         "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"Wards \":{\"terms\":{\"field\":\"Data.ward.locality.name.keyword\"},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\",\"min_doc_count\":0},\"aggs\":{\"Sum\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"Wards \":{\"terms\":{\"field\":\"Data.ward.locality.name.keyword\"},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\",\"min_doc_count\":0,\"size\":5},\"aggs\":{\"Sum\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}"
       },
       {
         "module": "PT",
@@ -2627,8 +2623,6 @@
     "valueType": "number",
     "drillChart": "none",
     "plotLabel": "Wards",
-    "order": "desc",
-    "limit": 3,
     "insight": {
     },
     "_comment": ""
