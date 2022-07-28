@@ -2547,7 +2547,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.locality.name.keyword\",\"tenantId\" : \"Data.tenantId.keyword\" }",
         "dateRefField": "",
         "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}},{\"terms\":{\"Data.financialYear.keyword\":[\"2022-23\",\"2021-22\",\"2020-21\"]}}]}},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\",\"order\":{\"Count\":\"desc\"}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"2020-21\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2020-21\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2021-22\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2021-22\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2022-23\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2022-23\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}"
       }
     ],
     "isMdmsEnabled": true,
@@ -2558,6 +2558,22 @@
     "valueType": "number",
     "drillChart": "xptFyByTenant",
     "plotLabel": "DDRs",
+    "aggregationPaths": [
+      "2020-21",
+      "2021-22",
+      "2022-23"
+    ],
+    "pathDataTypeMapping": [
+      {
+        "2020-21": "number"
+      },
+      {
+        "2021-22": "number"
+      },
+      {
+        "2022-23": "number"
+      }
+    ],
     "insight": {
     },
     "_comment": ""
@@ -2570,7 +2586,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.locality.name.keyword\",\"tenantId\" : \"Data.tenantId.keyword\" }",
         "dateRefField": "",
         "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}},{\"terms\":{\"Data.financialYear.keyword\":[\"2022-23\",\"2021-22\",\"2020-21\"]}}]}},\"aggs\":{\"ULBs \":{\"terms\":{\"field\":\"Data.tenantId.keyword\"},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\",\"order\":{\"Count\":\"desc\"}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"ULBs \":{\"terms\":{\"field\":\"Data.tenantId.keyword\"},\"aggs\":{\"2020-21\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2020-21\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2021-22\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2021-22\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2022-23\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2022-23\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -2581,6 +2597,22 @@
     "valueType": "number",
     "drillChart": "xptFyByWard",
     "plotLabel": "Boundary",
+    "aggregationPaths": [
+      "2020-21",
+      "2021-22",
+      "2022-23"
+    ],
+    "pathDataTypeMapping": [
+      {
+        "2020-21": "number"
+      },
+      {
+        "2021-22": "number"
+      },
+      {
+        "2022-23": "number"
+      }
+    ],
     "insight": {
     },
     "_comment": ""
@@ -2593,7 +2625,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\" , \"wardId\" : \"Data.ward.locality.name.keyword\"}",
         "dateRefField": "",
         "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}},{\"terms\":{\"Data.financialYear.keyword\":[\"2022-23\",\"2021-22\",\"2020-21\"]}}]}},\"aggs\":{\"Wards \":{\"terms\":{\"field\":\"Data.ward.locality.name.keyword\"},\"aggs\":{\"Fys\":{\"terms\":{\"field\":\"Data.financialYear.keyword\",\"order\":{\"Count\":\"desc\"}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}\n"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"Wards \":{\"terms\":{\"field\":\"Data.ward.locality.name.keyword\"},\"aggs\":{\"2020-21\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2020-21\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2021-22\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2021-22\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2022-23\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2022-23\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -2604,6 +2636,22 @@
     "valueType": "number",
     "drillChart": "none",
     "plotLabel": "Wards",
+    "aggregationPaths": [
+      "2020-21",
+      "2021-22",
+      "2022-23"
+    ],
+    "pathDataTypeMapping": [
+      {
+        "2020-21": "number"
+      },
+      {
+        "2021-22": "number"
+      },
+      {
+        "2022-23": "number"
+      }
+    ],
     "insight": {
     },
     "_comment": ""
