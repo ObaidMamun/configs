@@ -8,7 +8,7 @@
         "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\",\"module\" : \"dataObject.paymentDetails.businessService.keyword\", \"usageId\" : \"domainObject.usageCategory.keyword\",\"tenantId\" : \"dataObject.tenantId\", \"district\" : \"dataObject.tenantData.cityDistrictCode\" }",
         "dateRefField": "dataObject.paymentDetails.receiptDate",
         "indexName": "dss-collection_v1",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{ \"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"tenant\"}},{ \"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}]}},\"aggs\":{\"Receipt Number \":{ \"terms\":{ \"field\":\"dataObject.paymentDetails.receiptNumber.keyword\", \"size\":200 },\"aggs\":{ \"ULB\":{\"terms\":{\"field\":\"domainObject.tenantId.keyword\", \"size\":200},\"aggs\":{\"Ward\":{\"terms\":{\"field\":\"domainObject.ward.name.keyword\"},\"aggs\":{\"Amount Collected\":{\"sum\":{\"field\":\"dataObject.paymentDetails.totalAmountPaid\"}},\"Consumer Code\":{\"terms\":{\"field\":\"domainObject.propertyId.keyword\",\"size\":200}},\"Payment Mode\":{\"terms\":{\"field\":\"dataObject.paymentMode.keyword\"},\"aggs\":{\"Usage Type\":{\"terms\":{\"field\":\"domainObject.usageCategory.keyword\",\"size\":200}}}}}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{ \"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"tenant\"}},{ \"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}]}},\"aggs\":{\"Receipt Number \":{ \"terms\":{ \"field\":\"dataObject.paymentDetails.receiptNumber.keyword\", \"size\":200 },\"aggs\":{ \"ULB\":{\"terms\":{\"field\":\"domainObject.tenantId.keyword\", \"size\":200},\"aggs\":{\"Ward\":{\"terms\":{\"field\":\"domainObject.ward.name.keyword\"},\"aggs\":{\"Amount Collected\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}},\"Consumer Code\":{\"terms\":{\"field\":\"domainObject.propertyId.keyword\",\"size\":200}},\"Payment Mode\":{\"terms\":{\"field\":\"dataObject.paymentMode.keyword\"},\"aggs\":{\"Usage Type\":{\"terms\":{\"field\":\"domainObject.usageCategory.keyword\",\"size\":200}}}}}}}}}}}}}}"
       }
     ],
     "filterKeys": [],
@@ -230,7 +230,7 @@
         "dateRefField": "dataObject.paymentDetails.receiptDate",
         "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\",\"module\" : \"dataObject.paymentDetails.businessService.keyword\", \"tenantId\" : \"dataObject.tenantId\", \"district\" : \"dataObject.tenantData.city.districtCode\"}",
         "indexName": "dss-collection_v1",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}],\"must\":[{\"term\":{\"dataObject.paymentDetails.businessService.keyword\":\"PT\"}}]}},\"aggs\":{\"Total Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.totalAmountPaid\"}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}],\"must\":[{\"term\":{\"dataObject.paymentDetails.businessService.keyword\":\"PT\"}}]}},\"aggs\":{\"Total Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}}"
       },
       {
         "module": "TL",
@@ -280,7 +280,7 @@
         "dateRefField": "dataObject.paymentDetails.receiptDate",
         "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\", \n\"tenantId\" : \"dataObject.tenantId\"}",
         "indexName": "dss-collection_v1",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}],\"must\":[{\"terms\":{\"dataObject.paymentDetails.businessService.keyword\":[\"PT\"]}}]}},\"aggs\":{\"Collections\":{\"date_histogram\":{\"field\":\"dataObject.paymentDetails.receiptDate\",\"interval\":\"intervalvalue\"},\"aggs\":{\"Sum\":{\"sum\":{\"field\":\"dataObject.paymentDetails.totalAmountPaid\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}],\"must\":[{\"terms\":{\"dataObject.paymentDetails.businessService.keyword\":[\"PT\"]}}]}},\"aggs\":{\"Collections\":{\"date_histogram\":{\"field\":\"dataObject.paymentDetails.receiptDate\",\"interval\":\"intervalvalue\"},\"aggs\":{\"Sum\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}}}}"
       },
       {
         "module": "TL",
@@ -341,7 +341,7 @@
         "dateRefField": "dataObject.paymentDetails.receiptDate",
         "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\", \"tenantId\" : \"dataObject.tenantId\", \"district\" : \"dataObject.tenantData.city.districtCode\"}",
         "indexName": "dss-collection_v1",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}],\"must\":[{\"term\":{\"dataObject.paymentDetails.businessService.keyword\":\"PT\"}}]}},\"aggs\":{\"Total Collection\":{\"terms\":{\"field\":\"dataObject.tenantId.keyword\",\"size\":\"200\",\"order\":{\"Sum\":\"desc\"}},\"aggs\":{\"Sum\":{\"sum\":{\"field\":\"dataObject.paymentDetails.totalAmountPaid\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}],\"must\":[{\"term\":{\"dataObject.paymentDetails.businessService.keyword\":\"PT\"}}]}},\"aggs\":{\"Total Collection\":{\"terms\":{\"field\":\"dataObject.tenantId.keyword\",\"size\":\"200\",\"order\":{\"Sum\":\"desc\"}},\"aggs\":{\"Sum\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}}}}"
       },
       {
         "module": "TL",
@@ -393,7 +393,7 @@
         "dateRefField": "dataObject.paymentDetails.receiptDate",
         "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\", \"tenantId\" : \"dataObject.tenantId\", \"district\" : \"dataObject.tenantData.city.districtCode\"}",
         "indexName": "dss-collection_v1",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}],\"must\":[{\"term\":{\"dataObject.paymentDetails.businessService.keyword\":\"PT\"}}]}},\"aggs\":{\"Total Collection\":{\"terms\":{\"field\":\"dataObject.tenantId.keyword\",\"size\":\"200\",\"order\":{\"Sum\":\"asc\"}},\"aggs\":{\"Sum\":{\"sum\":{\"field\":\"dataObject.paymentDetails.totalAmountPaid\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}],\"must\":[{\"term\":{\"dataObject.paymentDetails.businessService.keyword\":\"PT\"}}]}},\"aggs\":{\"Total Collection\":{\"terms\":{\"field\":\"dataObject.tenantId.keyword\",\"size\":\"200\",\"order\":{\"Sum\":\"asc\"}},\"aggs\":{\"Sum\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}}}}"
       },
       {
         "module": "TL",
@@ -1034,7 +1034,7 @@
         "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\",\"module\" : \"dataObject.paymentDetails.businessService.keyword\", \"tenantId\" : \"dataObject.tenantId\", \"district\" : \"dataObject.tenantData.city.districtCode\" }",
         "dateRefField": "dataObject.paymentDetails.receiptDate",
         "indexName": "dss-collection_v1",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}]}},\"aggs\":{\"Usage Type\":{\"terms\":{\"field\":\"domainObject.usageCategory.keyword\",\"size\":200},\"aggs\":{\"Amount Paid\":{\"sum\":{\"field\":\"dataObject.paymentDetails.totalAmountPaid\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}]}},\"aggs\":{\"Usage Type\":{\"terms\":{\"field\":\"domainObject.usageCategory.keyword\",\"size\":200},\"aggs\":{\"Amount Paid\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
@@ -1247,7 +1247,7 @@
         "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\",\"module\" : \"dataObject.paymentDetails.businessService.keyword\", \"usageId\" : \"domainObject.usageCategory.keyword\",\"minorUsageId\" : \"domainObject.usageCategory.keyword\", \"tenantId\" : \"dataObject.tenantId\", \"district\" : \"dataObject.tenantData.city.districtCode\" }",
         "dateRefField": "dataObject.paymentDetails.receiptDate",
         "indexName": "dss-collection_v1",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}]}},\"aggs\":{\"Total Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.totalAmountPaid\"}},\"Transactions\":{\"value_count\":{\"field\":\"dataObject.transactionNumber.keyword\"}},\"Assessed Properties\":{\"nested\":{\"path\":\"domainObject.assessmentsDetails\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"domainObject.assessmentsDetails.assessmentNumber.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}]}},\"aggs\":{\"Total Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}},\"Transactions\":{\"value_count\":{\"field\":\"dataObject.transactionNumber.keyword\"}},\"Assessed Properties\":{\"nested\":{\"path\":\"domainObject.assessmentsDetails\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"domainObject.assessmentsDetails.assessmentNumber.keyword\"}}}}}}}}"
       },
       {
         "module": "COMMON",
@@ -1300,7 +1300,7 @@
         "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\",\"module\" : \"dataObject.paymentDetails.businessService.keyword\", \"usageId\" : \"domainObject.usageCategory.keyword\",\"minorUsageId\" : \"domainObject.usageCategory.keyword\", \"tenantId\" : \"dataObject.tenantId\", \"district\" : \"dataObject.tenantData.city.districtCode\" }",
         "dateRefField": "dataObject.paymentDetails.receiptDate",
         "indexName": "dss-collection_v1",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}]}},\"aggs\":{\"ULBs \":{\"terms\":{\"field\":\"domainObject.tenantId.keyword\",\"size\":200},\"aggs\":{\"Total Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.totalAmountPaid\"}},\"Transactions\":{\"value_count\":{\"field\":\"dataObject.paymentDetails.billId.keyword\"}},\"Assessed Properties\":{\"nested\":{\"path\":\"domainObject.assessmentsDetails\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"domainObject.assessmentsDetails.assessmentNumber.keyword\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}]}},\"aggs\":{\"ULBs \":{\"terms\":{\"field\":\"domainObject.tenantId.keyword\",\"size\":200},\"aggs\":{\"Total Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}},\"Transactions\":{\"value_count\":{\"field\":\"dataObject.paymentDetails.billId.keyword\"}},\"Assessed Properties\":{\"nested\":{\"path\":\"domainObject.assessmentsDetails\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"domainObject.assessmentsDetails.assessmentNumber.keyword\"}}}}}}}}}}"
       },
       {
         "module": "COMMON",
@@ -1356,7 +1356,7 @@
         "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\",\"module\" : \"dataObject.paymentDetails.businessService.keyword\", \"usageId\" : \"domainObject.usageCategory.keyword\",\"minorUsageId\" : \"domainObject.usageCategory.keyword\",\"tenantId\" : \"dataObject.tenantId\", \"ulbId\" : \"dataObject.tenantId\", \"district\" : \"dataObject.tenantData.city.districtCode\" }",
         "dateRefField": "dataObject.paymentDetails.receiptDate",
         "indexName": "dss-collection_v1",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}]}},\"aggs\":{\"Ward \":{\"terms\":{\"field\":\"domainObject.ward.name.keyword\",\"size\":200},\"aggs\":{\"Total Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.totalAmountPaid\"}},\"Transactions\":{\"value_count\":{\"field\":\"dataObject.paymentDetails.billId.keyword\"}},\"Assessed Properties\":{\"nested\":{\"path\":\"domainObject.assessmentsDetails\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"domainObject.assessmentsDetails.assessmentNumber.keyword\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentStatus.keyword\":[\"CANCELLED\",\"DISHONOURED\"]}}]}},\"aggs\":{\"Ward \":{\"terms\":{\"field\":\"domainObject.ward.name.keyword\",\"size\":200},\"aggs\":{\"Total Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}},\"Transactions\":{\"value_count\":{\"field\":\"dataObject.paymentDetails.billId.keyword\"}},\"Assessed Properties\":{\"nested\":{\"path\":\"domainObject.assessmentsDetails\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"domainObject.assessmentsDetails.assessmentNumber.keyword\"}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -2547,7 +2547,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.locality.name.keyword\",\"tenantId\" : \"Data.tenantId.keyword\" }",
         "dateRefField": "",
         "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"2020-21\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2020-21\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2021-22\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2021-22\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2022-23\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2022-23\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"2022-23\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2022-23\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2021-22\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2021-22\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2020-21\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2020-21\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}"
       }
     ],
     "isMdmsEnabled": true,
@@ -2559,19 +2559,19 @@
     "drillChart": "xptFyByTenant",
     "plotLabel": "DDRs",
     "aggregationPaths": [
-      "2020-21",
+      "2022-23",
       "2021-22",
-      "2022-23"
+      "2020-21"
     ],
     "pathDataTypeMapping": [
       {
-        "2020-21": "number"
+        "2022-23": "number"
       },
       {
         "2021-22": "number"
       },
       {
-        "2022-23": "number"
+        "2020-21": "number"
       }
     ],
     "insight": {
@@ -2586,7 +2586,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.locality.name.keyword\",\"tenantId\" : \"Data.tenantId.keyword\" }",
         "dateRefField": "",
         "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"ULBs \":{\"terms\":{\"field\":\"Data.tenantId.keyword\"},\"aggs\":{\"2020-21\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2020-21\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2021-22\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2021-22\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2022-23\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2022-23\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"ULBs \":{\"terms\":{\"field\":\"Data.tenantId.keyword\"},\"aggs\":{\"2022-23\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2022-23\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2021-22\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2021-22\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2020-21\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2020-21\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -2598,19 +2598,19 @@
     "drillChart": "xptFyByWard",
     "plotLabel": "Boundary",
     "aggregationPaths": [
-      "2020-21",
+      "2022-23",
       "2021-22",
-      "2022-23"
+      "2020-21"
     ],
     "pathDataTypeMapping": [
       {
-        "2020-21": "number"
+        "2022-23": "number"
       },
       {
         "2021-22": "number"
       },
       {
-        "2022-23": "number"
+        "2020-21": "number"
       }
     ],
     "insight": {
@@ -2625,7 +2625,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\" , \"wardId\" : \"Data.ward.locality.name.keyword\"}",
         "dateRefField": "",
         "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"Wards \":{\"terms\":{\"field\":\"Data.ward.locality.name.keyword\"},\"aggs\":{\"2020-21\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2020-21\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2021-22\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2021-22\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2022-23\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2022-23\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"Wards \":{\"terms\":{\"field\":\"Data.ward.locality.name.keyword\"},\"aggs\":{\"2022-23\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2022-23\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2021-22\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2021-22\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}},\"2020-21\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.financialYear.keyword\":[\"2020-21\"]}}]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.financialYear.keyword\"}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -2637,19 +2637,19 @@
     "drillChart": "none",
     "plotLabel": "Wards",
     "aggregationPaths": [
-      "2020-21",
+      "2022-23",
       "2021-22",
-      "2022-23"
+      "2020-21"
     ],
     "pathDataTypeMapping": [
       {
-        "2020-21": "number"
+        "2022-23": "number"
       },
       {
         "2021-22": "number"
       },
       {
-        "2022-23": "number"
+        "2020-21": "number"
       }
     ],
     "insight": {
