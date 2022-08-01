@@ -3871,6 +3871,22 @@
                   "chartType": "metric",
                   "filter": "",
                   "headers": []
+                },
+                {
+                  "id": "wstotalApplicationFeesCollection",
+                  "name": "DSS_WS_TOTAL_APPLICATION_FEES_COLLECTION",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "wstotalDemandFeesCollection",
+                  "name": "DSS_WS_TOTAL_DEMAND_FEES_COLLECTION",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
                 }
               ]
             },
@@ -4262,6 +4278,22 @@
                 {
                   "id": "wstargetAchieved",
                   "name": "DSS_WS_TARGET_ACHIEVED",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "wstotalApplicationFeesCollection",
+                  "name": "DSS_WS_TOTAL_APPLICATION_FEES_COLLECTION",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "wstotalDemandFeesCollection",
+                  "name": "DSS_WS_TOTAL_DEMAND_FEES_COLLECTION",
                   "code": "",
                   "chartType": "metric",
                   "filter": "",
