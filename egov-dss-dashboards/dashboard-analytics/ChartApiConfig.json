@@ -3653,7 +3653,7 @@
       {
         "module": "WS",
         "indexName": "dss-collection_v1",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentDetails.bill.status.keyword\":[\"Cancelled\"]}}],\"must\":[{\"terms\":{\"dataObject.paymentDetails.businessService.keyword\":[\"WS\",\"WS.ONE_TIME_FEE\",\"SW.ONE_TIME_FEE\",\"SW\"]}},{\"range\":{\"dataObject.paymentDetails.receiptDate\":{\"gte\":\"now-24h\",\"lte\":\"now\"}}}]}},\"aggs\":{\"Total Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.totalAmountPaid\"}}}}}}",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentDetails.bill.status.keyword\":[\"Cancelled\"]}}],\"must\":[{\"terms\":{\"dataObject.paymentDetails.businessService.keyword\":[\"WS\",\"WS.ONE_TIME_FEE\",\"SW.ONE_TIME_FEE\",\"SW\"]}},{\"range\":{\"dataObject.paymentDetails.receiptDate\":{\"gte\":\"now-24h\",\"lte\":\"now\"}}}]}},\"aggs\":{\"Total Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}}",
         "requestQueryMap": "{\"tenantId\" : \"dataObject.tenantId.keyword\", \"wardId\" : \"domainObject.ward.name.keyword\"}",
         "dateRefField": ""
       }
@@ -17694,29 +17694,19 @@
       {
         "module": "WS",
         "indexName": "dss-collection_v1",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentDetails.bill.status.keyword\":[\"Cancelled\"]}}],\"must\":[{\"terms\":{\"dataObject.paymentDetails.businessService.keyword\":[\"WS.ONE_TIME_FEE\",\"SW.ONE_TIME_FEE\"]}}]}},\"aggs\":{\"Total Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}}",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentDetails.bill.status.keyword\":[\"Cancelled\"]}}],\"must\":[{\"terms\":{\"dataObject.paymentDetails.businessService.keyword\":[\"WS.ONE_TIME_FEE\",\"SW.ONE_TIME_FEE\"]}}]}},\"aggs\":{\"Total Application Fees Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}}",
         "requestQueryMap": "{\"tenantId\" : \"dataObject.tenantId.keyword\", \"wardId\" : \"domainObject.ward.name.keyword\"}",
         "dateRefField": "dataObject.paymentDetails.receiptDate"
       }
     ],
-    "translateTenantCode": false,
     "chartType": "metric",
     "valueType": "amount",
     "action": "",
+    "documentType": "_doc",
     "drillChart": "none",
     "aggregationPaths": [
       "Total Application Fees Collection"
     ],
-    "insight": {
-      "chartResponseMap" : "wstotalApplicationFeesCollection",
-      "action" : "differenceOfNumbers",
-      "upwardIndicator" : "positive",
-      "downwardIndicator" : "negative",
-      "textMessage" : "$indicator$value% than last $insightInterval",
-      "colorCode" : "#228B22",
-      "insightInterval" : "year",
-      "isRoundOff": true
-    },
     "_comment": "WS total application fees collections "
   },
   "wstotalDemandFeesCollection": {
@@ -17725,29 +17715,19 @@
       {
         "module": "WS",
         "indexName": "dss-collection_v1",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentDetails.bill.status.keyword\":[\"Cancelled\"]}}],\"must\":[{\"terms\":{\"dataObject.paymentDetails.businessService.keyword\":[\"WS\",\"SW\"]}}]}},\"aggs\":{\"Total Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}}",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentDetails.bill.status.keyword\":[\"Cancelled\"]}}],\"must\":[{\"terms\":{\"dataObject.paymentDetails.businessService.keyword\":[\"WS\",\"SW\"]}}]}},\"aggs\":{\"Total Demand fees Collection\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}}",
         "requestQueryMap": "{\"tenantId\" : \"dataObject.tenantId.keyword\", \"wardId\" : \"domainObject.ward.name.keyword\"}",
         "dateRefField": "dataObject.paymentDetails.receiptDate"
       }
     ],
-    "translateTenantCode": false,
     "chartType": "metric",
     "valueType": "amount",
+    "documentType": "_doc",
     "action": "",
     "drillChart": "none",
     "aggregationPaths": [
       "Total Demand fees Collection"
     ],
-    "insight": {
-      "chartResponseMap" : "wstotalDemandFeesCollection",
-      "action" : "differenceOfNumbers",
-      "upwardIndicator" : "positive",
-      "downwardIndicator" : "negative",
-      "textMessage" : "$indicator$value% than last $insightInterval",
-      "colorCode" : "#228B22",
-      "insightInterval" : "year",
-      "isRoundOff": true
-    },
     "_comment": "WS total Demand Fees collections "
   }
 }
