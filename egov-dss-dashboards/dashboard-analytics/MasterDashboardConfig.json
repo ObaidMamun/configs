@@ -4092,14 +4092,6 @@
                   "headers": []
                 },
                 {
-                  "id": "wsSLACompliance",
-                  "name": "DSS_WS_SLA_COMPLIANCE",
-                  "code": "",
-                  "chartType": "metric",
-                  "filter": "",
-                  "headers": []
-                },
-                {
                   "id": "wstotalConnection",
                   "name": "DSS_WS_ACTIVE_CONNECTIONS",
                   "code": "",
@@ -4118,6 +4110,14 @@
                 {
                   "id": "wsActiveNonMeteredWaterConnection",
                   "name": "DSS_WS_ACTIVE_NON_METERED_WATER_CONNECTIONS",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "wstotalCumulativeActiveConnection",
+                  "name": "DSS_WS_CUMULATIVE_ACTIVE_CONNECTIONS",
                   "code": "",
                   "chartType": "metric",
                   "filter": "",
@@ -4501,15 +4501,7 @@
                   "chartType": "metric",
                   "filter": "",
                   "headers": []
-                },
-                {
-                  "id": "wsSLACompliance",
-                  "name": "DSS_WS_SLA_COMPLIANCE",
-                  "code": "",
-                  "chartType": "metric",
-                  "filter": "",
-                  "headers": []
-                },
+                },                
                 {
                   "id": "wstotalConnection",
                   "name": "DSS_WS_ACTIVE_CONNECTIONS",
@@ -4529,6 +4521,14 @@
                 {
                   "id": "wsActiveNonMeteredWaterConnection",
                   "name": "DSS_WS_ACTIVE_NON_METERED_WATER_CONNECTIONS",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "wstotalCumulativeActiveConnection",
+                  "name": "DSS_WS_CUMULATIVE_ACTIVE_CONNECTIONS",
                   "code": "",
                   "chartType": "metric",
                   "filter": "",
