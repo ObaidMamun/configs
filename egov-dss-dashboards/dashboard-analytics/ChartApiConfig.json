@@ -17630,7 +17630,7 @@
       {
         "module": "PT",
         "indexName": "property-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Total No Of Application\":{\"value_count\":{\"field\":\"Data.propertyId.keyword\"}}}}}}",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}]}},\"aggs\":{\"Total No Of Application\":{\"value_count\":{\"field\":\"Data.propertyId.keyword\"}}}}}}",
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \r\n  \"district\" : \"Data.tenantData.city.districtCode\", \r\n\"tenantId\" : \"Data.tenantId\" \r\n}",
         "dateRefField": ""
       }
@@ -17737,16 +17737,18 @@
         "module": "WS",
         "indexName": "water-services",
         "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.applicationStatus.keyword\":\"REJECTED\"}}],\"must\":[{\"terms\":{\"Data.applicationStatus.keyword\":[\"CONNECTION_ACTIVATED\"]}}]}},\"aggs\":{\"Total Cumulative Active Connection\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}",
-        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\", \"wardId\" : \"Data.ward.name.keyword\"}"
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\", \"wardId\" : \"Data.ward.name.keyword\"}",
+        "dateRefField": ""
         }
     ],
-    "translateTenantCode": false,
     "chartType": "metric",
     "valueType": "number",
-    "action": "additive",
+    "action": "",
+    "documentType": "_doc",
     "drillChart": "none",
     "aggregationPaths": [
       "Total Cumulative Active Connection"
-    ]
+    ],
+    "_comment": "Ws Total Cumulative Active Connection"
   }
 }
