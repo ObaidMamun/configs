@@ -3830,7 +3830,6 @@
     "action": "percentage",
     "plotLabel": "DSS_TARGET_ACHIEVED",
     "order": "desc",
-    "limit": 3,
     "isRoundOff": true,
     "aggregationPaths": [
       "Total Collection","Target Collection"
@@ -3868,7 +3867,6 @@
     "action": "percentage",
     "plotLabel": "DSS_TARGET_ACHIEVED",
     "order": "asc",
-    "limit": 3,
     "isRoundOff": true,
     "aggregationPaths": [
       "Total Collection", "Target Collection"
