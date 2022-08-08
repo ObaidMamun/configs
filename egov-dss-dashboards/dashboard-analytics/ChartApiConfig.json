@@ -1109,7 +1109,7 @@
       {
         "module": "PT",
         "indexName": "property-assessments",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}]}},\"aggs\":{\"Assessed Properties\":{\"value_count\":{\"field\":\"Data.assessmentNumber.keyword\"}}}}}}",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"Assessed Properties\":{\"cardinality\":{\"field\":\"Data.propertyId.keyword\",\"precision_threshold\":40000}}}}}}",
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\",\"tenantId\" : \"Data.tenantId\" ,\"district\" : \"Data.tenantData.city.districtCode\"}",
         "dateRefField": "Data.@timestamp"
       }
@@ -3830,6 +3830,7 @@
     "action": "percentage",
     "plotLabel": "DSS_TARGET_ACHIEVED",
     "order": "desc",
+    "limit": 200,
     "isRoundOff": true,
     "aggregationPaths": [
       "Total Collection","Target Collection"
@@ -3867,6 +3868,7 @@
     "action": "percentage",
     "plotLabel": "DSS_TARGET_ACHIEVED",
     "order": "asc",
+    "limit": 200,
     "isRoundOff": true,
     "aggregationPaths": [
       "Total Collection", "Target Collection"
@@ -16142,7 +16144,7 @@
       {
         "module": "PT",
         "indexName": "property-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}]}},\"aggs\":{\"Total Application\":{\"value_count\":{\"field\":\"Data.propertyId.keyword\"}}}}}}",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"Data.creationReason.keyword\":[\"UPDATE\",\"MUTATION\"]}}]}},\"aggs\":{\"Total Application\":{\"cardinality\":{\"field\":\"Data.propertyId.keyword\",\"precision_threshold\":40000}}}}}}",
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \r\n  \"district\" : \"Data.tenantData.city.districtCode\", \r\n\"tenantId\" : \"Data.tenantId\" \r\n}",
         "dateRefField": "Data.auditDetails.createdTime"
       }
@@ -17628,7 +17630,7 @@
       {
         "module": "PT",
         "indexName": "property-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}]}},\"aggs\":{\"Total No Of Application\":{\"value_count\":{\"field\":\"Data.propertyId.keyword\"}}}}}}",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}],\"must\":[{\"term\":{\"Data.status.keyword\":\"ACTIVE\"}}]}},\"aggs\":{\"Total No Of Application\":{\"cardinality\":{\"field\":\"Data.propertyId.keyword\",\"precision_threshold\":40000}}}}}}",
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \r\n  \"district\" : \"Data.tenantData.city.districtCode\", \r\n\"tenantId\" : \"Data.tenantId\" \r\n}",
         "dateRefField": ""
       }
@@ -17748,5 +17750,26 @@
       "Total Cumulative Active Connection"
     ],
     "_comment": "Ws Total Cumulative Active Connection"
+  },
+  "ptTotalApplications": {
+    "chartName": "DSS_PT_TOTAL_APPLICATIONS",
+    "queries": [
+      {
+        "module": "PT",
+        "indexName": "property-application",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"od.testing\"}}]}},\"aggs\":{\"Total Applications\":{\"value_count\":{\"field\":\"Data.propertyId.keyword\"}}}}}}",
+        "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"district\" : \"Data.tenantData.city.districtCode\", \"tenantId\" : \"Data.tenantId\" \r\n}",
+        "dateRefField": "Data.@timestamp"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Total Applications"
+    ],
+    "_comment": "PT Total Applications received"
   }
 }
