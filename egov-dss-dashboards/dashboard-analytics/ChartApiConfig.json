@@ -16165,7 +16165,7 @@
       {
         "module": "PT",
         "indexName": "dss-collection_v1",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentDetails.bill.status.keyword\":[\"Cancelled\"]}}],\"must\":[{\"term\":{\"dataObject.paymentDetails.businessService.keyword\":\"PT\"}} ]}},\"aggs\":{\"Paid Properties\":{\"cardinality\":{\"field\":\"dataObject.id.keyword\"}}}}}}",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"od.testing\"}},{\"terms\":{\"dataObject.paymentDetails.bill.status.keyword\":[\"Cancelled\"]}}],\"must\":[{\"term\":{\"dataObject.paymentDetails.businessService.keyword\":\"PT\"}}]}},\"aggs\":{\"Paid Properties\":{\"cardinality\":{\"field\":\"dataObject.paymentDetails.bill.consumerCode.keyword\",\"precision_threshold\":40000}}}}}}",
         "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\",\"tenantId\" : \"dataObject.tenantId\" ,\"district\" : \"dataObject.tenantData.city.districtCode\"}",
         "dateRefField": "dataObject.paymentDetails.receiptDate"
       }
