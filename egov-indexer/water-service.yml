@@ -11,7 +11,7 @@ ServiceMaps:
         jsonPath: $.WaterConnection
         timeStampField: $.auditDetails.createdTime
         customJsonMapping:
-          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","oldApplication":"","connectionFacility":"","status":"","connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyUsageType":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"","channel":"","@timestamp":"timestamp","auditDetails":{},"history":{}}}
+          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyUsageType":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"","channel":"","@timestamp":"timestamp","auditDetails":{},"history":{}}}
           fieldMapping:
           - inJsonPath: $.applicationStatus.state
             outJsonPath: $.Data.workflow.state
@@ -23,10 +23,6 @@ ServiceMaps:
             outJsonPath: $.Data.applicationNo
           - inJsonPath: $.applicationStatus
             outJsonPath: $.Data.applicationStatus
-          - inJsonPath: $.oldApplication
-            outJsonPath: $.Data.oldApplication
-          - inJsonPath: $.connectionFacility
-            outJsonPath: $.Data.connectionFacility
           - inJsonPath: $.status
             outJsonPath: $.Data.status
           - inJsonPath: $.connectionNo
@@ -120,7 +116,7 @@ ServiceMaps:
         jsonPath: $.WaterConnection
         timeStampField: $.auditDetails.lastModifiedTime
         customJsonMapping:
-          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","oldApplication":"","connectionFacility":"","status":"","connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyUsageType":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"","channel":"","@timestamp":"timestamp","auditDetails":{},"history":{}}}
+          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyUsageType":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"","channel":"","@timestamp":"timestamp","auditDetails":{},"history":{}}}
           fieldMapping:
           - inJsonPath: $.applicationStatus.state
             outJsonPath: $.Data.workflow.state
@@ -132,10 +128,6 @@ ServiceMaps:
             outJsonPath: $.Data.applicationNo
           - inJsonPath: $.applicationStatus
             outJsonPath: $.Data.applicationStatus
-           - inJsonPath: $.oldApplication
-            outJsonPath: $.Data.oldApplication
-          - inJsonPath: $.connectionFacility
-            outJsonPath: $.Data.connectionFacility
           - inJsonPath: $.status
             outJsonPath: $.Data.status
           - inJsonPath: $.connectionNo
@@ -228,7 +220,7 @@ ServiceMaps:
         jsonPath: $.WaterConnection
         timeStampField: $.auditDetails.lastModifiedTime
         customJsonMapping:
-          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","oldApplication":"","connectionFacility":"","status":"","connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyUsageType":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"","channel":"","@timestamp":"timestamp","auditDetails":{},"history":{}}}
+          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyUsageType":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"","channel":"","@timestamp":"timestamp","auditDetails":{},"history":{}}}
           fieldMapping:
           - inJsonPath: $.applicationStatus.state
             outJsonPath: $.Data.workflow.state
@@ -240,10 +232,6 @@ ServiceMaps:
             outJsonPath: $.Data.applicationNo
           - inJsonPath: $.applicationStatus
             outJsonPath: $.Data.applicationStatus
-           - inJsonPath: $.oldApplication
-            outJsonPath: $.Data.oldApplication
-          - inJsonPath: $.connectionFacility
-            outJsonPath: $.Data.connectionFacility
           - inJsonPath: $.status
             outJsonPath: $.Data.status
           - inJsonPath: $.connectionNo
@@ -337,7 +325,7 @@ ServiceMaps:
         jsonPath: $.WaterConnection.*
         timeStampField: $.auditDetails.createdTime
         customJsonMapping:
-          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","oldApplication":"","connectionFacility":"","status":"","connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyUsageType":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"","channel":"","@timestamp":"timestamp","auditDetails":{},"history":{}}}
+          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyUsageType":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"","channel":"","@timestamp":"timestamp","auditDetails":{},"history":{}}}
           fieldMapping:
           - inJsonPath: $.applicationStatus.state
             outJsonPath: $.Data.workflow.state
@@ -349,10 +337,6 @@ ServiceMaps:
             outJsonPath: $.Data.applicationNo
           - inJsonPath: $.applicationStatus
             outJsonPath: $.Data.applicationStatus
-          - inJsonPath: $.oldApplication
-            outJsonPath: $.Data.oldApplication
-          - inJsonPath: $.connectionFacility
-            outJsonPath: $.Data.connectionFacility
           - inJsonPath: $.status
             outJsonPath: $.Data.status
           - inJsonPath: $.connectionNo
