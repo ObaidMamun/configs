@@ -132,7 +132,7 @@ ServiceMaps:
             outJsonPath: $.Data.applicationNo
           - inJsonPath: $.applicationStatus
             outJsonPath: $.Data.applicationStatus
-           - inJsonPath: $.oldApplication
+          - inJsonPath: $.oldApplication
             outJsonPath: $.Data.oldApplication
           - inJsonPath: $.connectionFacility
             outJsonPath: $.Data.connectionFacility
@@ -240,7 +240,7 @@ ServiceMaps:
             outJsonPath: $.Data.applicationNo
           - inJsonPath: $.applicationStatus
             outJsonPath: $.Data.applicationStatus
-           - inJsonPath: $.oldApplication
+          - inJsonPath: $.oldApplication
             outJsonPath: $.Data.oldApplication
           - inJsonPath: $.connectionFacility
             outJsonPath: $.Data.connectionFacility
